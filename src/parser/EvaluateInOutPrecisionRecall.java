@@ -11,7 +11,8 @@ import utils.FileUtil;
 
 public class EvaluateInOutPrecisionRecall {
 
-	static String fop_input="C:\\Users\\pdhung\\Desktop\\hungData\\research\\ImportantProjects\\SpecMiningProject\\TypeResolutionTranslation\\output_5libs_newApp\\fold-1\\";
+//	static String fop_input="/Users/hungphan/git/7_fold/";
+	static String fop_input="/Users/hungphan/git/translationExample/st_data/origin/";
 //	/sensitivity_5fold_ressult\\
 	
 	public static boolean checkAPIsInLibrary(HashSet<String> setLib,String token){
@@ -41,11 +42,16 @@ public class EvaluateInOutPrecisionRecall {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+//		String fn_trainSource="data/train/train.s";
+//		String fn_trainTarget="data/train/train.t";
+//		String fn_testSource="data/test4/test.s";
+//		String fn_testTarget="data/refs/test/ref0";
 		String fn_trainSource="train.s";
 		String fn_trainTarget="train.t";
 		String fn_testSource="test.s";
 		String fn_testTarget="test.t";
 		String fn_testTranslation="test.tune.baseline.trans";
+		
 		String fn_result="result_all.txt";
 		String fn_log_incorrect="log_incorrect.txt";
 		String fn_log_outVocab="log_outVocab.txt";
@@ -296,7 +302,7 @@ public class EvaluateInOutPrecisionRecall {
 			countOutOfSource+=numCSourceLine;
 			countOutOfTarget+=numCTargetLine;
 			countAllOutOfVocab+=numCSourceLine+numCTargetLine;
-			ptResult.print("Line "+(i+1)+" (correct/incorrect/OOS/OOT/OOV): "+numCorrect+"\t"+numIncorrect+"\t"+numCSourceLine+"\t"+numCTargetLine+"\t"+(numCSourceLine+numCTargetLine)+"\n");
+			ptResult.print("Line "+(i+1)+" (correct/incorrect/OOS/OOT/OOV)\t"+numCorrect+"\t"+numIncorrect+"\t"+numCSourceLine+"\t"+numCTargetLine+"\t"+(numCSourceLine+numCTargetLine)+"\n");
 			ptIncorrect.print("Line "+(i+1)+" : "+strIncorrectLog+"\n");
 			ptOutVocab.print("Line "+(i+1)+" : "+strOutSource.trim()+" ||| "+strOutTarget.trim()+"\n");
 			//FileUtil.appendToFile(fop_input+fn_result, numCorrect+"\t"+numIncorrect+"\t"+numCSourceLine+"\t"+numCTargetLine+"\t"+(numCSourceLine+numCTargetLine)+"\n");
